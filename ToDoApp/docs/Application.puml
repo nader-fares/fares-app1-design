@@ -15,10 +15,15 @@ class ToDo {
 ListView<Item> itemList;
 }
 
-class Controller {
+class ListController {
 +addList
 +delList
 +editList
++saveTodoList
++loadTodoList
+}
+
+class ItemController {
 +addItem
 +delItem
 +editItem
@@ -26,15 +31,19 @@ class Controller {
 +showAllItems
 +showIncompleteItems
 +showCompleteItems
-+saveTodoList
-+loadTodoList
 }
 
-file Application.fxml {
+file Item.fxml {
 }
 
+file List.fxml {
+}
 ToDo o-- Item
-Controller o-- ToDo
-Application.fxml o-- Controller
-Application o-- Application.fxml
+Item.fxml o-- ItemController
+Item.fxml o-- ToDo
+List.fxml o-- ToDo
+
+List.fxml o-- ListController
+ListController o-- Item.fxml
+Application o-- List.fxml
 @enduml
