@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Application {
++main(String[] args)
++start(Stage stage)
+}
+class Item {
+-String itemDescription;
+-LocalDate itemDueDate
+}
+
+class ToDo {
+-String todoTitle;
+ListView<Item> itemList;
+}
+
+class Controller {
++addList
++delList
++editList
++addItem
++delItem
++editItem
++markItemComplete
++showAllItems
++showIncompleteItems
++showCompleteItems
++saveTodoList
++loadTodoList
+}
+
+file Application.fxml {
+}
+
+ToDo o-- Item
+Controller o-- ToDo
+Application.fxml o-- Controller
+Application o-- Application.fxml
+@enduml
